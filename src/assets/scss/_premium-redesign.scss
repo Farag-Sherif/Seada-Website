@@ -1,0 +1,143 @@
+// Premium Redesign Tokens & Utilities
+:root {
+  --premium-dark: #0f1115;
+  --premium-dark-card: #181a20;
+  --premium-accent: #00d2ff;
+  --premium-accent-gradient: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+  --premium-text: #ffffff;
+  --premium-text-muted: #94a3b8;
+  --premium-border: rgba(255, 255, 255, 0.08);
+  --premium-glass: rgba(24, 26, 32, 0.7);
+  --premium-glass-border: rgba(255, 255, 255, 0.1);
+}
+
+// Global resets for the new design
+body.dark {
+  background-color: var(--premium-dark);
+  color: var(--premium-text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  a {
+    color: var(--premium-text);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      color: var(--premium-accent);
+    }
+  }
+}
+
+// Utilities
+.glass-panel {
+  background: var(--premium-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--premium-glass-border);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.premium-text-gradient {
+  background: var(--premium-accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.premium-btn {
+  background: var(--premium-accent-gradient);
+  color: #fff !important;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 210, 255, 0.4);
+  }
+}
+
+.premium-btn-outline {
+  background: transparent;
+  color: var(--premium-text) !important;
+  border: 1px solid var(--premium-glass-border);
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  
+  &:hover {
+    background: rgba(255,255,255,0.05);
+    border-color: var(--premium-accent);
+    transform: translateY(-2px);
+  }
+}
+
+// Navbar overrides
+.top-header-dark {
+  background: transparent !important;
+}
+
+header {
+  &.sticky {
+    background: rgba(15, 17, 21, 0.85) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid var(--premium-border);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.main-menu {
+  .menu-left {
+    .brand-logo {
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+  .menu-right {
+    .icon-nav {
+      .icon-nav-item {
+        color: #fff;
+      }
+    }
+  }
+}
+
+// Section spacing
+.premium-section {
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+// Card Hover
+.premium-card-hover {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  &:hover {
+    transform: translateY(-10px);
+  }
+}
+
+// Remove default theme styling that clashes
+.title1, .title2, .title3, .title4 {
+  h4 { color: var(--premium-accent) !important; }
+  h2 { color: var(--premium-text) !important; }
+}
+
+.theme-card {
+  background: var(--premium-dark-card);
+  border: 1px solid var(--premium-border);
+  border-radius: 16px;
+  overflow: hidden;
+}

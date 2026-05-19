@@ -1,0 +1,332 @@
+/* ============================================================
+   SEADA — Premium Glassmorphism Profile Theme
+   Modern, Dynamic, Apple-inspired Web App Aesthetic
+   ============================================================ */
+
+/* ---- Google Fonts ---- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ---- Design Tokens ---- */
+:root {
+  /* Dynamic Backgrounds */
+  --corp-bg: #f8fafc;
+  --corp-bg-alt: #f1f5f9;
+  
+  /* Primary & Accents (Vibrant & Gradient-friendly) */
+  --corp-navy: #16793c;
+  --corp-navy-light: #1e293b;
+  --corp-slate: #334155;
+  
+  --corp-accent: #3b82f6; /* Vibrant Blue */
+  --corp-accent-light: #60a5fa;
+  --corp-accent-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  --corp-gold: #3b82f6; /* Alias for compatibility with old components */
+  --corp-gold-light: #60a5fa;
+  
+  /* Glassmorphism Variables */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+
+  /* Neutrals */
+  --corp-white: #ffffff;
+  --corp-gray-50: #f8fafc;
+  --corp-gray-100: #f1f5f9;
+  --corp-gray-200: #e2e8f0;
+  --corp-gray-300: #cbd5e1;
+
+  /* Text */
+  --corp-text: #0f172a;
+  --corp-text-secondary: #475569;
+  --corp-text-muted: #94a3b8;
+  --corp-text-on-dark: #f8fafc;
+
+  /* Shadows */
+  --corp-shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
+  --corp-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --corp-shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
+  --corp-shadow-glow: 0 10px 30px rgba(59, 130, 246, 0.25);
+
+  /* Radii */
+  --corp-radius-sm: 10px;
+  --corp-radius-md: 16px;
+  --corp-radius-lg: 24px;
+  --corp-radius-xl: 32px;
+  --corp-radius-full: 999px;
+
+  /* Transitions */
+  --corp-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --corp-ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --corp-duration: 0.4s;
+  
+  /* Typography */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ---- Global Reset & Base ---- */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--corp-text);
+  background: var(--corp-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--corp-navy);
+  letter-spacing: -0.02em;
+}
+
+/* ---- Section Utilities ---- */
+.corp-section {
+  padding: 50px 0;
+  position: relative;
+  overflow: hidden;
+}
+.corp-section-sm { padding: 80px 0; }
+.corp-section-alt { background: var(--corp-bg-alt); }
+.corp-section-dark {
+  background: var(--corp-navy);
+  color: var(--corp-text-on-dark);
+}
+.corp-section-dark h1, .corp-section-dark h2, .corp-section-dark h3 {
+  color: var(--corp-white);
+}
+
+/* ---- Modern Section Header ---- */
+.corp-section-header {
+  text-align: center;
+  margin-bottom: 70px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.corp-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 24px;
+  border-radius: var(--corp-radius-full);
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--corp-accent);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 24px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+.corp-section-header h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  margin-bottom: 24px;
+  background: var(--corp-navy);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+}
+.corp-section-header p {
+  font-size: 1.2rem;
+  color: var(--corp-text-secondary);
+  line-height: 1.8;
+}
+
+/* ---- Gold Line replaced by Gradient Bar ---- */
+.corp-gold-line {
+  width: 80px;
+  height: 6px;
+  background: var(--corp-accent-gradient);
+  border-radius: 4px;
+  margin: 30px auto;
+}
+
+/* ---- Buttons ---- */
+.corp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  gap: 12px;
+  padding: 16px 36px;
+  border-radius: var(--corp-radius-full);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: all var(--corp-duration) var(--corp-ease-spring);
+  border: none;
+}
+.corp-btn-primary {
+  background: var(--corp-accent-gradient);
+  color: var(--corp-white) !important;
+  box-shadow: var(--corp-shadow-glow);
+}
+.corp-btn-primary:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.35);
+}
+.corp-btn-outline-dark {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  color: var(--corp-navy) !important;
+  border: 2px solid var(--corp-gray-200);
+}
+.corp-btn-outline-dark:hover {
+  border-color: var(--corp-accent);
+  transform: translateY(-4px);
+}
+.corp-btn-navy {
+  background: var(--corp-navy);
+  color: var(--corp-white) !important;
+}
+.corp-btn-navy:hover {
+  background: var(--corp-accent);
+  transform: translateY(-4px);
+}
+
+/* ---- Glass Cards ---- */
+.corp-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--corp-radius-xl);
+  padding: 40px;
+  box-shadow: var(--glass-shadow);
+  transition: all var(--corp-duration) var(--corp-ease);
+}
+.corp-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--corp-shadow-lg);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* ---- WhatsApp Float ---- */
+.corp-whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 32px;
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+  z-index: 999;
+  transition: all var(--corp-duration) var(--corp-ease-spring);
+  text-decoration: none !important;
+}
+.corp-whatsapp-float:hover {
+  transform: scale(1.15) translateY(-5px);
+}
+
+/* ---- Override tap-top ---- */
+.tap-top {
+  background: var(--corp-white) !important;
+  color: var(--corp-navy) !important;
+  border: 1px solid var(--corp-gray-200);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--corp-shadow-md);
+  transition: all var(--corp-duration) var(--corp-ease);
+}
+.tap-top:hover {
+  background: var(--corp-navy) !important;
+  color: var(--corp-white) !important;
+  transform: translateY(-8px);
+}
+
+/* Hide overlapping title background texts */
+.title-inner1::before,
+.title1 .title-inner1,
+.breadcrumb-section .title-inner1,
+.breadcrumb-section h2::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Hide old e-commerce artifacts */
+.addtocart_count,
+.cart_qty_cls,
+.product-count { display: none !important; }
+
+/* ---- Header (Relative Document Flow) ---- */
+.corp-header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--corp-white);
+  padding: 16px 0;
+  border-bottom: 1px solid var(--corp-gray-200);
+  z-index: 999999 !important;
+  transition: all var(--corp-duration) var(--corp-ease);
+}
+.corp-header.is-scrolled {
+  /* No scrolling effects needed if it's position: relative, but we keep the class for safety */
+  padding: 16px 0;
+  background: var(--corp-white);
+  box-shadow: var(--corp-shadow-sm);
+}
+.corp-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.corp-header-logo img {
+  height: 44px;
+  width: auto;
+  transition: all var(--corp-duration) var(--corp-ease);
+}
+.corp-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.corp-nav-link {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--corp-navy);
+  text-decoration: none !important;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.corp-nav-link:hover {
+  color: var(--corp-accent);
+}
+.corp-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.corp-mobile-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--corp-navy);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .corp-header {
+    padding: 12px 0;
+  }
+  .corp-mobile-toggle { display: block; }
+}
