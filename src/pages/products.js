@@ -8,6 +8,7 @@ import { getCategories } from "../actions/categories";
 import ProductCardUnified from "../components/products/productCard";
 import { useProductAdapter } from "../components/products/useProductAdapter";
 import StyleTag from "@/styles/StyleTag";
+import { useRouter } from "@/router/useRouter";
 
 const absolutize = (url) => {
   if (!url) return url;
@@ -28,8 +29,21 @@ const ProductsPage = () => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   
+  const router = useRouter();
+  const queryCatId = router.query?.category_id;
+  
   const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(
+    queryCatId ? (Number(queryCatId) || queryCatId) : null
+  );
+
+  useEffect(() => {
+    if (queryCatId) {
+      setSelectedCategory(Number(queryCatId) || queryCatId);
+      setPage(1);
+      setProducts([]);
+    }
+  }, [queryCatId]);
 
   const { adapt } = useProductAdapter(isRTL);
 

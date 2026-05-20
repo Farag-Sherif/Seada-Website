@@ -200,6 +200,7 @@ const MasterFooter = ({
             border-top: none !important;
             position: relative;
             overflow: hidden;
+            margin-bottom: 0 !important;
           }
           .corp-footer::before { display: none; }
           .corp-footer-top-bar {

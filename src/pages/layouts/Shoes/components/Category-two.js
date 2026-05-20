@@ -95,7 +95,7 @@ const CategoryTwo = () => {
         img: pickImage(it, i),
         title: pickTranslatedName(it, want),
         // Navigate client-side with query (?category_id=...)
-        onClick: () => router.push({ pathname: "/shop/sidebar_popup", query: { category_id: it?.id } }),
+        onClick: () => router.push({ pathname: "/products", query: { category_id: it?.id } }),
       })),
     [items, want, router]
   );

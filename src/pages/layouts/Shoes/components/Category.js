@@ -140,7 +140,7 @@ const Category = () => {
   }, [currentLanguage, want]);
 
   const handleNavigate = (linkId) => {
-    router.push({ pathname: "/shop/sidebar_popup", query: { category_id: linkId } });
+    router.push({ pathname: "/products", query: { category_id: linkId } });
   };
 
   return (
