@@ -85,3 +85,16 @@ export async function getTermsAndConditions() {
   const response = await get("/conditions");
   return response;
 }
+
+export async function sendConsultation(data) {
+  const formData = new FormData();
+  formData.append("company_name", data.companyName);
+  formData.append("contact_name", data.contactName);
+  formData.append("industry_sector", data.industry);
+  formData.append("inquiry_type", data.inquiryType);
+  formData.append("email", data.email);
+  formData.append("phone_number", data.phone);
+  formData.append("message", data.message);
+  const response = await postFormData("/consultation", formData);
+  return response;
+}

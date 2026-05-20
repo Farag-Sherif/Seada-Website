@@ -3,7 +3,7 @@ import CommonLayout from "../components/shop/common-layout";
 import { useLanguage } from "../helpers/Language/useLanguage";
 import { Container, Row, Col, Form, Label, Input } from "reactstrap";
 import { ToastContainer, toast } from "react-toastify";
-import { sendContact } from "../actions/main";
+import { sendConsultation } from "../actions/main";
 import StyleTag from "@/styles/StyleTag";
 
 const ConsultationPage = () => {
@@ -29,15 +29,18 @@ const ConsultationPage = () => {
     if (submitting) return;
 
     const payload = {
-      name: form.contactName,
+      companyName: form.companyName,
+      contactName: form.contactName,
       email: form.email,
-      subject: `Consultation Request: ${form.companyName || form.contactName} - ${form.inquiryType}`,
-      message: `Phone: ${form.phone}\nCompany: ${form.companyName}\nIndustry: ${form.industry}\nType: ${form.inquiryType}\n\nMessage:\n${form.message}`,
+      phone: form.phone,
+      industry: form.industry,
+      inquiryType: form.inquiryType,
+      message: form.message,
     };
 
     try {
       setSubmitting(true);
-      await toast.promise(sendContact(payload), {
+      await toast.promise(sendConsultation(payload), {
         pending: isRTL ? "جاري الإرسال..." : "Sending...",
         success: isRTL ? "تم استلام طلب الاستشارة بنجاح" : "Consultation request sent successfully!",
         error: isRTL ? "فشل في إرسال الطلب" : "Failed to send request. Please try again.",
