@@ -75,6 +75,7 @@ export default defineConfig(function (_a) {
                     "favicon.ico",
                     "apple-touch-icon.png",
                     "masked-icon.png",
+                    "pwa-maskable-512x512.png",
                 ],
                 manifest: {
                     name: "Seada",
@@ -98,6 +99,12 @@ export default defineConfig(function (_a) {
                             sizes: "512x512",
                             type: "image/png",
                             purpose: "any",
+                        },
+                        {
+                            src: "/pwa-maskable-512x512.png",
+                            sizes: "512x512",
+                            type: "image/png",
+                            purpose: "maskable",
                         },
                     ],
                 },
