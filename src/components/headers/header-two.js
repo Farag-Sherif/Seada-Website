@@ -133,6 +133,9 @@ const HeaderTwo = ({ logoName, headerClass }) => {
                   {isRTL ? item.labelAr : item.labelEn}
                 </Link>
               ))}
+              <div style={{ padding: "0 16px", marginTop: "8px", marginBottom: "8px" }}>
+                <LanguageSwitcher showLabel={false} />
+              </div>
               <Link to="/contact" className="corp-btn corp-btn-primary corp-btn-sm" onClick={(e) => handleNavClick(e, "/contact")} style={{ marginTop: 12, width: "100%", justifyContent: "center" }}>
                 {isRTL ? "طلب عرض سعر" : "Get a Quote"}
               </Link>
@@ -199,7 +202,7 @@ const HeaderTwo = ({ logoName, headerClass }) => {
           padding: 0;
         }
         .corp-mobile-menu.open {
-          max-height: 400px;
+          max-height: 450px;
           padding: 16px 0 24px;
         }
         .corp-mobile-nav {
@@ -220,6 +223,20 @@ const HeaderTwo = ({ logoName, headerClass }) => {
         .corp-mobile-nav-link:hover {
           background: rgba(255, 255, 255, 0.08);
           color: var(--corp-white) !important;
+        }
+
+        /* Mobile Language Switcher */
+        .corp-mobile-nav .language-switcher select {
+          color: rgba(255, 255, 255, 0.9) !important;
+          background: rgba(255, 255, 255, 0.1) !important;
+          border: 1px solid rgba(255, 255, 255, 0.2) !important;
+          border-radius: var(--corp-radius-full) !important;
+          font-size: 0.9rem !important;
+          padding: 8px 16px !important;
+          width: 100%;
+        }
+        .corp-mobile-nav .language-switcher option {
+          color: #000 !important;
         }
 
         /* Push body down for fixed header */

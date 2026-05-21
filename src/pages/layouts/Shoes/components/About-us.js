@@ -3,6 +3,8 @@ import { Container, Row, Col, Media } from "reactstrap";
 import { useLanguage } from "../../../../helpers/Language/useLanguage";
 import { getSettings } from "../../../../actions/main";
 import StyleTag from "@/styles/StyleTag";
+import Link from "@/router/NextLinkCompat";
+import { useRouter } from "@/router/useRouter";
 
 const pickTr = (settings, isRTL, key) => {
   if (!settings) return undefined;
@@ -12,8 +14,11 @@ const pickTr = (settings, isRTL, key) => {
 
 const AboutUs = () => {
   const { t, isRTL } = useLanguage();
+  const router = useRouter();
   const [settings, setSettings] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const isAboutPage = router.pathname === "/about";
 
   useEffect(() => {
     let mounted = true;
@@ -90,9 +95,11 @@ const AboutUs = () => {
                   </div>
                 )}
 
-                <a href="#contact" className="corp-btn corp-btn-navy" style={{ marginTop: 24 }}>
-                  {isRTL ? "تعرف علينا أكثر" : "Learn More About Us"}
-                </a>
+                <Link to={isAboutPage ? "/contact" : "/about"} className="corp-btn corp-btn-navy" style={{ marginTop: 24 }}>
+                  {isAboutPage 
+                    ? (isRTL ? "تواصل معنا" : "Contact Us") 
+                    : (isRTL ? "تعرف علينا أكثر" : "Learn More About Us")}
+                </Link>
               </div>
             </Col>
           </Row>
