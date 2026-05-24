@@ -196,7 +196,7 @@ const HeaderTwo = ({ logoName, headerClass }) => {
         .corp-mobile-menu {
           max-height: 0;
           overflow: hidden;
-          background: rgba(15, 27, 45, 0.98);
+          background: linear-gradient(135deg, var(--corp-navy-light) 0%, var(--corp-navy) 100%);
           backdrop-filter: blur(20px);
           transition: max-height 0.4s var(--corp-ease), padding 0.4s var(--corp-ease);
           padding: 0;

@@ -213,13 +213,13 @@ const AboutUs = () => {
         .corp-about-feature:hover {
           transform: translateX(${isRTL ? "-8px" : "8px"});
           background: rgba(255, 255, 255, 0.8);
-          border-color: rgba(59, 130, 246, 0.2);
+          border-color: rgba(var(--corp-accent-rgba), 0.2);
         }
         .corp-about-feature-icon {
           font-size: 1.5rem;
           width: 48px;
           height: 48px;
-          background: rgba(59, 130, 246, 0.1);
+          background: rgba(var(--corp-accent-rgba), 0.1);
           color: var(--corp-accent);
           display: grid;
           place-items: center;

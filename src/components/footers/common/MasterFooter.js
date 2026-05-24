@@ -251,7 +251,7 @@ const MasterFooter = ({
             color: var(--corp-white);
             border-color: transparent;
             transform: translateY(-4px);
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 4px 15px rgba(var(--corp-accent-rgba), 0.3);
           }
           .corp-footer-social a img {
             width: 18px;

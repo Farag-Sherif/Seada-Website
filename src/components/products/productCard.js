@@ -204,7 +204,7 @@ const ProductCardUnified = ({ product, isRTL, className = "" }) => {
           text-transform: uppercase;
           letter-spacing: 0.1em;
           color: var(--corp-accent);
-          background: rgba(59, 130, 246, 0.1);
+          background: rgba(var(--corp-accent-rgba), 0.1);
           padding: 4px 10px;
           border-radius: var(--corp-radius-sm);
         }

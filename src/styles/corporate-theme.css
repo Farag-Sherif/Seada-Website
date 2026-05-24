@@ -13,15 +13,16 @@
   --corp-bg-alt: #f1f5f9;
   
   /* Primary & Accents (Vibrant & Gradient-friendly) */
-  --corp-navy: #16793c;
-  --corp-navy-light: #1e293b;
+  --corp-navy: #16793c; /* Primary Brand Green */
+  --corp-navy-light: #0d4f25; /* Dark Forest Green */
   --corp-slate: #334155;
   
-  --corp-accent: #3b82f6; /* Vibrant Blue */
-  --corp-accent-light: #60a5fa;
-  --corp-accent-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-  --corp-gold: #3b82f6; /* Alias for compatibility with old components */
-  --corp-gold-light: #60a5fa;
+  --corp-accent: #16793c; /* Brand Green */
+  --corp-accent-light: #229954; /* Lighter primary */
+  --corp-accent-gradient: linear-gradient(135deg, #16793c 0%, #b98848 100%); /* Brand Green to Caramel */
+  --corp-gold: #b98848; /* Caramel */
+  --corp-gold-light: #ebdcb9; /* Light Caramel */
+  --corp-accent-rgba: 22, 121, 60; /* Brand Green RGBA */
   
   /* Glassmorphism Variables */
   --glass-bg: rgba(255, 255, 255, 0.7);
@@ -45,7 +46,7 @@
   --corp-shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
   --corp-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.06);
   --corp-shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
-  --corp-shadow-glow: 0 10px 30px rgba(59, 130, 246, 0.25);
+  --corp-shadow-glow: 0 10px 30px rgba(var(--corp-accent-rgba), 0.25);
 
   /* Radii */
   --corp-radius-sm: 10px;
@@ -112,14 +113,14 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   padding: 8px 24px;
   border-radius: var(--corp-radius-full);
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba(var(--corp-accent-rgba), 0.1);
   color: var(--corp-accent);
   font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   margin-bottom: 24px;
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(var(--corp-accent-rgba), 0.2);
 }
 .corp-section-header h2 {
   font-size: clamp(2.5rem, 5vw, 4rem);
@@ -169,7 +170,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .corp-btn-primary:hover {
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.35);
+  box-shadow: 0 15px 35px rgba(var(--corp-accent-rgba), 0.35);
 }
 .corp-btn-outline-dark {
   background: var(--glass-bg);

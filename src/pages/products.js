@@ -259,7 +259,7 @@ const ProductsPage = () => {
         }
 
         .filter-item button:hover {
-          background: rgba(59, 130, 246, 0.05);
+          background: rgba(var(--corp-accent-rgba), 0.05);
           color: var(--corp-accent);
           transform: translateX(${isRTL ? '-4px' : '4px'});
         }

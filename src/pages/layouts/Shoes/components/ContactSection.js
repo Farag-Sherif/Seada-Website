@@ -276,7 +276,7 @@ const ContactSection = () => {
           outline: none;
           background: var(--corp-white);
           border-color: var(--corp-accent);
-          box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+          box-shadow: 0 0 0 4px rgba(var(--corp-accent-rgba), 0.1);
         }
         .corp-textarea {
           min-height: 150px;
