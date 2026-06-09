@@ -73,9 +73,9 @@ export default defineConfig(function (_a) {
                 },
                 includeAssets: [
                     "favicon.ico",
-                    "apple-touch-icon.png",
-                    "masked-icon.png",
-                    "pwa-maskable-512x512.png",
+                    "apple-touch-icon.jpeg",
+                    "masked-icon.jpeg",
+                    "pwa-maskable-512x512.jpeg",
                 ],
                 manifest: {
                     name: "Seada",
@@ -89,21 +89,21 @@ export default defineConfig(function (_a) {
                     start_url: "/",
                     icons: [
                         {
-                            src: "/pwa-192x192.png",
+                            src: "/pwa-192x192.jpeg",
                             sizes: "192x192",
-                            type: "image/png",
+                            type: "image/jpeg",
                             purpose: "any",
                         },
                         {
-                            src: "/pwa-512x512.png",
+                            src: "/pwa-512x512.jpeg",
                             sizes: "512x512",
-                            type: "image/png",
+                            type: "image/jpeg",
                             purpose: "any",
                         },
                         {
-                            src: "/pwa-maskable-512x512.png",
+                            src: "/pwa-maskable-512x512.jpeg",
                             sizes: "512x512",
-                            type: "image/png",
+                            type: "image/jpeg",
                             purpose: "maskable",
                         },
                     ],

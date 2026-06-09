@@ -3,88 +3,89 @@ import { Container } from "reactstrap";
 import { useLanguage } from "../../../../helpers/Language/useLanguage";
 import StyleTag from "@/styles/StyleTag";
 
-const steps = (isRTL) => [
+const steps = (t) => [
   {
     num: "01",
-    icon: "📋",
-    title: isRTL ? "الاستفسار" : "Inquiry",
-    desc: isRTL
-      ? "تواصل معنا لمناقشة متطلباتك واحتياجاتك."
-      : "Reach out to us to discuss your requirements and needs.",
+    icon: "🤝",
+    title: t("process.step1.title"),
+    desc: t("process.step1.desc"),
   },
   {
     num: "02",
-    icon: "💬",
-    title: isRTL ? "الاستشارة" : "Consultation",
-    desc: isRTL
-      ? "فريقنا المختص يقدم لك الحلول والتوصيات المناسبة."
-      : "Our expert team provides tailored solutions and recommendations.",
+    icon: "🏭",
+    title: t("process.step2.title"),
+    desc: t("process.step2.desc"),
   },
   {
     num: "03",
-    icon: "🏭",
-    title: isRTL ? "الإنتاج" : "Production",
-    desc: isRTL
-      ? "تصنيع منتجاتك وفق أعلى معايير الجودة والدقة."
-      : "Manufacturing your products with the highest quality and precision.",
+    icon: "🚚",
+    title: t("process.step3.title"),
+    desc: t("process.step3.desc"),
   },
   {
     num: "04",
-    icon: "🔍",
-    title: isRTL ? "فحص الجودة" : "Quality Check",
-    desc: isRTL
-      ? "فحوصات صارمة لضمان مطابقة المنتج للمواصفات."
-      : "Rigorous inspections to ensure products meet all specifications.",
-  },
-  {
-    num: "05",
-    icon: "🚚",
-    title: isRTL ? "التوصيل" : "Delivery",
-    desc: isRTL
-      ? "شحن آمن وسريع إلى وجهتك في أي مكان بالعالم."
-      : "Safe and fast shipping to your destination anywhere in the world.",
+    icon: "📞",
+    title: t("process.step4.title"),
+    desc: t("process.step4.desc"),
   },
 ];
 
 const ProcessSection = () => {
-  const { isRTL } = useLanguage();
-  const data = steps(isRTL);
+  const { t, isRTL } = useLanguage();
+  const data = steps(t);
 
   return (
     <section className="corp-section process-section-modern" id="process" dir={isRTL ? "rtl" : "ltr"}>
       <Container>
         <div className="corp-section-header">
           <span className="corp-label">
-            {isRTL ? "آلية العمل" : "Our Process"}
+            {t("process.sub_title")}
           </span>
-          <h2>{isRTL ? "كيف نعمل" : "How We Work"}</h2>
+          <h2>{t("process.title")}</h2>
           <div className="corp-gold-line" style={{ background: "var(--corp-accent-gradient)" }} />
-          <p className="process-subtitle">
-            {isRTL
-              ? "نتبع منهجية واضحة ومنظمة لضمان تقديم أفضل النتائج لعملائنا عبر خمس خطوات استراتيجية."
-              : "We follow a clear and organized methodology to deliver the best results for our clients through five strategic steps."}
+          <p className="process-subtitle" style={{
+            fontStyle: "italic",
+            fontSize: "1.1rem",
+            color: "var(--corp-text-secondary)",
+            marginTop: "10px",
+            marginBottom: "0"
+          }}>
+            {t("process.subtitle_desc")}
           </p>
         </div>
 
         <div className="process-timeline-modern">
-          {data.map((step, idx) => (
-            <div
-              className="process-card-modern"
-              key={idx}
-              style={{ animationDelay: `${idx * 0.1}s` }}
-            >
-              <div className="process-card-inner">
-                <div className="process-card-front">
-                  <div className="process-step-num-modern">{step.num}</div>
-                  <div className="process-step-icon-modern">{step.icon}</div>
-                  <h4 className="process-step-title-modern">{step.title}</h4>
-                </div>
-                <div className="process-card-back">
-                  <p className="process-step-desc-modern">{step.desc}</p>
+          {data.map((step, idx) => {
+            const isHighlight = idx === 1;
+            return (
+              <div
+                className={`process-card-modern ${isHighlight ? "highlight-card" : ""}`}
+                key={idx}
+                style={{ animationDelay: `${idx * 0.1}s` }}
+              >
+                <div className="process-card-inner">
+                  <div className="process-card-front">
+                    <div className="process-step-num-modern">{step.num}</div>
+                    <div className="process-step-icon-modern">{step.icon}</div>
+                    <h4 className="process-step-title-modern">{step.title}</h4>
+                    {isHighlight && (
+                      <span className="process-card-badge">
+                        {isRTL ? "هويتنا" : "OUR IDENTITY"}
+                      </span>
+                    )}
+                  </div>
+                  <div className="process-card-back">
+                    <p className="process-step-desc-modern">{step.desc}</p>
+                    {isHighlight && (
+                      <span className="process-card-badge-back">
+                        {isRTL ? "هويتنا" : "OUR IDENTITY"}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Container>
 
@@ -189,6 +190,47 @@ const ProcessSection = () => {
           line-height: 1.7;
           color: rgba(255, 255, 255, 0.9);
           font-weight: 500;
+        }
+
+        /* Card 2 Highlight Styles (Dark Green Theme) */
+        .process-card-modern.highlight-card .process-card-front {
+          background: #0F3D26 !important;
+          border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        }
+        .process-card-modern.highlight-card .process-card-back {
+          background: #0F3D26 !important;
+          border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        }
+        .process-card-modern.highlight-card .process-step-num-modern {
+          color: rgba(255, 255, 255, 0.08) !important;
+        }
+        .process-card-modern.highlight-card .process-step-title-modern {
+          color: #FFF !important;
+        }
+        .process-card-modern.highlight-card .process-step-desc-modern {
+          color: rgba(255, 255, 255, 0.95) !important;
+        }
+        .process-card-modern.highlight-card .process-step-icon-modern {
+          background: rgba(255, 255, 255, 0.1) !important;
+          border: 1px solid rgba(255, 255, 255, 0.25) !important;
+          color: #FFF !important;
+          box-shadow: none !important;
+        }
+        .process-card-badge, .process-card-badge-back {
+          font-family: var(--font-heading);
+          font-size: 0.75rem;
+          font-weight: 800;
+          color: #C8A35F;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          margin-top: 15px;
+          display: block;
+          text-align: center;
+        }
+        .process-card-badge-back {
+          margin-top: 20px;
+          position: absolute;
+          bottom: 20px;
         }
       `} />
     </section>

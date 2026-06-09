@@ -2,9 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { router } from "@/app/router";
+import Download from "@/components/Download/Download";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+  <RouterProvider router={ router } />
+  <Download />
   </React.StrictMode>
 );

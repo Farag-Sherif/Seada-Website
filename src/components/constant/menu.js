@@ -18,6 +18,12 @@ export const MENUITEMS = [
     title: "About Us",
     type: "link",
   },
+  {
+    titleKey: "menu.events",
+    title: "Events",
+    type: "link",
+    path: "/events",
+  },
 
  {
     titleKey: "menu.blogs",

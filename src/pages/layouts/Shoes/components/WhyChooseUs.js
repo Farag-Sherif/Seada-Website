@@ -4,48 +4,36 @@ import { useLanguage } from "../../../../helpers/Language/useLanguage";
 import { getChoices } from "../../../../actions/main";
 import StyleTag from "@/styles/StyleTag";
 
-const defaultAdvantages = (isRTL) => [
+const defaultAdvantages = (t) => [
   {
-    icon: "🏭",
-    title: isRTL ? "تصنيع عالي الجودة" : "Premium Manufacturing",
-    desc: isRTL
-      ? "مرافق إنتاج حديثة تضمن أعلى معايير الجودة في كل منتج."
-      : "State-of-the-art production facilities ensuring the highest quality standards in every product.",
-  },
-  {
-    icon: "🌍",
-    title: isRTL ? "خبرة في التصدير" : "Global Export Experience",
-    desc: isRTL
-      ? "سنوات من الخبرة في الشحن والتصدير إلى أسواق عالمية متعددة."
-      : "Years of experience in shipping and exporting to multiple international markets.",
-  },
-  {
-    icon: "✅",
-    title: isRTL ? "ضمان الجودة" : "Quality Assurance",
-    desc: isRTL
-      ? "فحوصات جودة صارمة في كل مرحلة من مراحل الإنتاج."
-      : "Rigorous quality checks at every stage of the production process.",
+    icon: "🕰️",
+    title: t("why_us.generational.title"),
+    desc: t("why_us.generational.desc"),
   },
   {
     icon: "🤝",
-    title: isRTL ? "شراكة موثوقة" : "Trusted Partnership",
-    desc: isRTL
-      ? "بناء علاقات طويلة الأمد مع عملائنا من خلال الشفافية والموثوقية."
-      : "Building long-term relationships with our clients through transparency and reliability.",
+    title: t("why_us.wholesale.title"),
+    desc: t("why_us.wholesale.desc"),
   },
   {
-    icon: "📦",
-    title: isRTL ? "حلول مخصصة" : "Customized Solutions",
-    desc: isRTL
-      ? "نقدم حلول تغليف ومنتجات مخصصة تلبي احتياجات عملائنا."
-      : "We offer customized packaging and product solutions tailored to your business needs.",
+    icon: "🏭",
+    title: t("why_us.production.title"),
+    desc: t("why_us.production.desc"),
   },
   {
-    icon: "⚡",
-    title: isRTL ? "تسليم سريع" : "Fast Turnaround",
-    desc: isRTL
-      ? "عمليات مبسطة تضمن التسليم في الوقت المحدد في كل مرة."
-      : "Streamlined operations ensuring on-time delivery, every time.",
+    icon: "🏅",
+    title: t("why_us.quality.title"),
+    desc: t("why_us.quality.desc"),
+  },
+  {
+    icon: "🌍",
+    title: t("why_us.global.title"),
+    desc: t("why_us.global.desc"),
+  },
+  {
+    icon: "⭐",
+    title: t("why_us.egypt_first.title"),
+    desc: t("why_us.egypt_first.desc"),
   },
 ];
 
@@ -62,7 +50,7 @@ const pickTranslation = (choice, locale) => {
 };
 
 const WhyChooseUs = () => {
-  const { isRTL, currentLanguage } = useLanguage();
+  const { t, isRTL, currentLanguage } = useLanguage();
   const [choices, setChoices] = useState(null);
 
   useEffect(() => {
@@ -86,22 +74,22 @@ const WhyChooseUs = () => {
         return { id: c.id, icon, title, description };
       });
     }
-    return defaultAdvantages(isRTL).map((a, i) => ({
+    return defaultAdvantages(t).map((a, i) => ({
       id: `adv-${i}`,
       icon: a.icon,
       title: a.title,
       description: a.desc,
     }));
-  }, [choices, currentLanguage, isRTL]);
+  }, [choices, currentLanguage, t]);
 
   return (
     <section className="corp-section corp-section-alt" id="why-us" dir={isRTL ? "rtl" : "ltr"}>
       <Container>
         <div className="corp-section-header">
           <span className="corp-label">
-            {isRTL ? "لماذا نحن" : "Why Choose Us"}
+            {t("why_us.sub_title")}
           </span>
-          <h2>{isRTL ? "ما يميزنا عن غيرنا" : "What Sets Us Apart"}</h2>
+          <h2>{t("why_us.title")}</h2>
           <hr className="corp-gold-line" />
           <p>
             {isRTL

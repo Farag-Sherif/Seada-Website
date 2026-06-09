@@ -78,6 +78,7 @@ const SideBar = () => {
     { href: "/", label: isRTL ? "الرئيسية" : "Home", icon: "🏠" },
     { href: "/about", label: isRTL ? "من نحن" : "About Us", icon: "🏢" },
     { href: "/products", label: isRTL ? "المنتجات" : "Products", icon: "📦" },
+    { href: "/events", label: isRTL ? "الفعاليات" : "Events", icon: "📅" },
     { href: "/consultation", label: isRTL ? "استشارة" : "Consultation", icon: "🤝" },
     { href: "/contact", label: isRTL ? "تواصل معنا" : "Contact", icon: "✉️" },
   ]), [isRTL]);

@@ -36,16 +36,27 @@ const AboutUs = () => {
     return () => { mounted = false; };
   }, []);
 
-  const smallTitle = pickTr(settings, isRTL, "about_section_sub_title") || (isRTL ? "من نحن" : "About Us");
-  const bigTitle = pickTr(settings, isRTL, "about_section_title") || t("welcome_multi_store") || (isRTL ? "قصة شركتنا" : "Our Company Story");
-  const intro = pickTr(settings, isRTL, "about_section_introduction") || pickTr(settings, isRTL, "about_us") || t("lorem_about_text") || "";
-  const vision = pickTr(settings, isRTL, "about_section_vision");
+  const smallTitle = pickTr(settings, isRTL, "about_section_sub_title") || t("about.sub_title");
+  const bigTitle = pickTr(settings, isRTL, "about_section_title") || t("about.title");
+  
+  const fallbackIntro = (
+    <div className="about-intro-paragraphs">
+      <p style={{ marginBottom: "12px" }}>{t("about.intro_p1")}</p>
+      <p style={{ marginBottom: "12px" }}>{t("about.intro_p2")}</p>
+      <p style={{ marginBottom: 0 }}>{t("about.intro_p3")}</p>
+    </div>
+  );
+  const intro = pickTr(settings, isRTL, "about_section_introduction") || pickTr(settings, isRTL, "about_us") || fallbackIntro;
+  
+  const vision = pickTr(settings, isRTL, "about_section_vision") || t("about.vision_desc");
+  const mission = pickTr(settings, isRTL, "about_section_mission") || t("about.mission_desc");
   const apart = pickTr(settings, isRTL, "about_section_apart");
   const commitment = pickTr(settings, isRTL, "about_section_commitment");
   const imageSrc = settings?.about_section_image_path || settings?.banner_image_path || settings?.image_logo_path || "";
 
   const features = [
-    vision && { icon: "🎯", label: isRTL ? "رؤيتنا" : "Our Vision", text: vision },
+    { icon: "⭐", label: isRTL ? "رؤيتنا" : "Our Vision", text: vision },
+    { icon: "🏅", label: isRTL ? "رسالتنا" : "Our Mission", text: mission },
     apart && { icon: "⭐", label: isRTL ? "ما يميزنا" : "What Sets Us Apart", text: apart },
     commitment && { icon: "🤝", label: isRTL ? "التزامنا" : "Our Commitment", text: commitment },
   ].filter(Boolean);
@@ -58,11 +69,11 @@ const AboutUs = () => {
             {imageSrc && (
               <Col lg="5" className="mb-4 mb-lg-0">
                 <div className="corp-about-image">
-                  <Media src={imageSrc} className="img-fluid" alt={smallTitle} />
+                   <Media src={imageSrc} className="img-fluid" alt={smallTitle} />
                   <div className="corp-about-accent" aria-hidden="true" />
                   <div className="corp-about-exp-badge">
-                    <strong>15+</strong>
-                    <span>{isRTL ? "سنة خبرة" : "Years"}</span>
+                    <strong>70+</strong>
+                    <span>{t("about.badge_label")}</span>
                   </div>
                 </div>
               </Col>
@@ -77,9 +88,9 @@ const AboutUs = () => {
                   {loading ? "…" : bigTitle}
                 </h2>
                 <hr className="corp-gold-line corp-gold-line-left" />
-                <p className="corp-about-intro">
+                <div className="corp-about-intro">
                   {loading ? "…" : intro}
-                </p>
+                </div>
 
                 {features.length > 0 && (
                   <div className="corp-about-features">
@@ -94,6 +105,16 @@ const AboutUs = () => {
                     ))}
                   </div>
                 )}
+
+                <p className="about-founder-footer" style={{
+                  fontStyle: "italic",
+                  fontSize: "0.95rem",
+                  color: "var(--corp-text-secondary)",
+                  marginTop: "24px",
+                  lineHeight: "1.6"
+                }}>
+                  {t("about.footer_note")}
+                </p>
 
                 <Link to={isAboutPage ? "/contact" : "/about"} className="corp-btn corp-btn-navy" style={{ marginTop: 24 }}>
                   {isAboutPage 

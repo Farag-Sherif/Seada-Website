@@ -5,6 +5,7 @@ import HeaderTwo from "../components/headers/header-two";
 import MasterFooter from "../components/footers/common/MasterFooter";
 import Home from "./layouts/Shoes/index";
 
+
 const Fashion = () => {
   return (
     <>
@@ -21,6 +22,7 @@ const Fashion = () => {
         topClass="top-header"
       />
       <Home />
+     
 
       <MasterFooter
         footerClass="footer-light"

@@ -1,0 +1,67 @@
+/* Download.css */
+
+.download-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 90;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: #2563eb;
+  background-color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  border: 1px solid #dbeafe;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+  .download-btn {
+    display: flex;
+  }
+  .download-btn {
+    bottom: 2rem;
+    left: 2rem;
+    width: 4rem;
+    height: 4rem;
+  }
+
+
+.download-btn:hover {
+  transform: scale(1.1) translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.download-btn:hover .download-btn__bg {
+  opacity: 1;
+}
+
+.download-btn:hover .download-btn__icon {
+  color: #1d4ed8;
+}
+
+.download-btn__bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-color: #eff6ff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.download-btn__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
+  z-index: 10;
+  transition: color 0.3s ease;
+}
+
+  .download-btn__icon {
+    width: 2rem;
+    height: 2rem;
+  }

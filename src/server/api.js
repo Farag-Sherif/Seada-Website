@@ -33,7 +33,9 @@ async function request(input, init = {}) {
 
   if (!res.ok) {
     const msg =
-      (payload && typeof payload === "object" && (payload.message || payload.error)) ||
+      (payload &&
+        typeof payload === "object" &&
+        (payload.message || payload.error)) ||
       (typeof payload === "string" ? payload : "Request failed");
     throw new Error(msg);
   }
@@ -106,4 +108,14 @@ export async function clearAuthToken() {
 }
 export async function searchProducts(name) {
   return post(`items/find`, { name });
+}
+export async function events() {
+  return get(`events`);
+}
+
+export async function event(id) {
+  return get(`event/${id}`);
+}
+export async function getSettings() {
+  return get(`settings`);
 }

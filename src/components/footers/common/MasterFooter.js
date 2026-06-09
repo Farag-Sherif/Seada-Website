@@ -100,6 +100,8 @@ const MasterFooter = ({
     { label: isRTL ? "الرئيسية" : "Home", href: "/" },
     { label: isRTL ? "من نحن" : "About Us", href: "/about" },
     { label: isRTL ? "المنتجات" : "Products", href: "/products" },
+    { label: isRTL ? "الفعاليات" : "Events", href: "/events" },
+    { label: isRTL ? "المعرض" : "Gallery", href: "/gallery" },
     { label: isRTL ? "استشارة" : "Consultation", href: "/consultation" },
     { label: isRTL ? "تواصل معنا" : "Contact", href: "/contact" },
   ];
