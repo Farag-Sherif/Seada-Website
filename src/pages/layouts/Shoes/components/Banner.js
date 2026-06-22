@@ -189,9 +189,9 @@ export default function Banner() {
           }
 
           .premium-hero-content-box {
-            background: rgba(15, 23, 42, 0.65);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgb(15 23 42 / 24%);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: var(--corp-radius-xl);
             padding: 60px 40px;

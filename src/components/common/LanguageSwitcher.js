@@ -1,30 +1,45 @@
 import React from 'react';
 import { useLanguage } from '../../helpers/Language/useLanguage';
-import language from '../constant/langConfig.json';
+import StyleTag from '@/styles/StyleTag';
 
-const LanguageSwitcher = ({ className = '', showLabel = true }) => {
-  const { currentLanguage, changeLanguage, isRTL } = useLanguage();
+const LanguageSwitcher = ({ className = '' }) => {
+  const { changeLanguage, currentLanguage } = useLanguage();
+
+  const isAr = String(currentLanguage).toLowerCase() === 'ar';
+
+  const toggleLanguage = () => {
+    changeLanguage(isAr ? 'en' : 'ar');
+  };
 
   return (
-    <div className={`language-switcher ${className}`}>
-      {showLabel && (
-        <span className="language-label" style={{ marginRight: isRTL ? 0 : '10px', marginLeft: isRTL ? '10px' : 0 }}>
-          {isRTL ? 'اللغة:' : 'Language:'}
-        </span>
-      )}
-      <select 
-        value={currentLanguage} 
-        onChange={(e) => changeLanguage(e.target.value)}
-        className="language-select"
-        style={{ direction: isRTL ? 'rtl' : 'ltr' }}
-      >
-        {language.map((lang) => (
-          <option key={lang.val} value={lang.val}>
-            {lang.lang}
-          </option>
-        ))}
-      </select>
-    </div>
+    <>
+      <div className={`language-switcher-direct ${className}`}>
+        <button
+          type="button"
+          className="c-lang-btn-direct"
+          onClick={toggleLanguage}
+          aria-label="Change language"
+        >
+          {isAr ? 'EN' : 'ع'}
+        </button>
+      </div>
+
+      <StyleTag global css={`
+        .language-switcher-direct { display: inline-flex; align-items: center; }
+        .c-lang-btn-direct {
+          display: inline-flex; align-items: center; justify-content: center;
+          width: 44px; height: 32px;
+          background: #b5bcc5; color: #ffffff;
+          border: none; border-radius: 16px; cursor: pointer;
+          font-family: inherit; font-weight: 700; font-size: 16px;
+          transition: background 0.2s, transform 0.15s;
+        }
+        .c-lang-btn-direct:hover { background: #9fa7b2; transform: translateY(-1px); }
+        @media (max-width: 575.98px) {
+          .c-lang-btn-direct  { width: 38px; height: 28px; font-size: 14px; }
+        }
+      `} />
+    </>
   );
 };
 
