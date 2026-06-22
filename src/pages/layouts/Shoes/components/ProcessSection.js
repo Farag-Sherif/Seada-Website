@@ -6,25 +6,25 @@ import StyleTag from "@/styles/StyleTag";
 const steps = (t) => [
   {
     num: "01",
-    icon: "🤝",
+    icon: "/assets/icon/SHA-01.png",
     title: t("process.step1.title"),
     desc: t("process.step1.desc"),
   },
   {
     num: "02",
-    icon: "🏭",
+    icon: "/assets/icon/SHA-03.png",
     title: t("process.step2.title"),
     desc: t("process.step2.desc"),
   },
   {
     num: "03",
-    icon: "🚚",
+    icon: "/assets/icon/SHA-05.png",
     title: t("process.step3.title"),
     desc: t("process.step3.desc"),
   },
   {
     num: "04",
-    icon: "📞",
+    icon: "/assets/icon/SHA-04.png",
     title: t("process.step4.title"),
     desc: t("process.step4.desc"),
   },
@@ -66,7 +66,9 @@ const ProcessSection = () => {
                 <div className="process-card-inner">
                   <div className="process-card-front">
                     <div className="process-step-num-modern">{step.num}</div>
-                    <div className="process-step-icon-modern">{step.icon}</div>
+                    <div className="process-step-icon-modern">
+                      <img src={step.icon} alt={step.title} style={{ width: '40px', height: '40px', objectFit: 'contain' }} />
+                    </div>
                     <h4 className="process-step-title-modern">{step.title}</h4>
                     {isHighlight && (
                       <span className="process-card-badge">
