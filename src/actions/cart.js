@@ -1,4 +1,6 @@
 // actions/cart.client.js
+import { toProxyPath } from "../server/api";
+
 const jsonHeaders = { "Content-Type": "application/json" };
 
 async function parse(res) {
@@ -16,7 +18,7 @@ function ensureOk(res, payload) {
 }
 
 export async function getCart() {
-  const res = await fetch("/api/proxy/cart", { method: "GET", credentials: "include" });
+  const res = await fetch(toProxyPath("cart"), { method: "GET", credentials: "include" });
   const payload = await parse(res);
   return ensureOk(res, payload);
 }
@@ -26,7 +28,7 @@ export async function addToCart(itemId, qty, weight = "") {
   fd.append("item_id", String(itemId));
   fd.append("qty", String(qty));
   fd.append("weight", String(weight));
-  const res = await fetch("/api/proxy/add-to-cart", { method: "POST", body: fd, credentials: "include" });
+  const res = await fetch(toProxyPath("add-to-cart"), { method: "POST", body: fd, credentials: "include" });
   const payload = await parse(res);
   return ensureOk(res, payload);
 }
@@ -35,7 +37,7 @@ export async function updateCartQuantity(itemId, qty) {
   const fd = new FormData();
   fd.append("item_id", String(itemId));
   fd.append("qty", String(qty));
-  const res = await fetch("/api/proxy/update-qty-cart", { method: "POST", body: fd, credentials: "include" });
+  const res = await fetch(toProxyPath("update-qty-cart"), { method: "POST", body: fd, credentials: "include" });
   const payload = await parse(res);
   return ensureOk(res, payload);
 }
@@ -43,13 +45,13 @@ export async function updateCartQuantity(itemId, qty) {
 export async function removeFromCart(itemId) {
   const fd = new FormData();
   fd.append("item_id", String(itemId));
-  const res = await fetch("/api/proxy/remove-from-cart", { method: "POST", body: fd, credentials: "include" });
+  const res = await fetch(toProxyPath("remove-from-cart"), { method: "POST", body: fd, credentials: "include" });
   const payload = await parse(res);
   return ensureOk(res, payload);
 }
 
 export async function removeAllFromCart() {
-  const res = await fetch("/api/proxy/remove-all-cart", {
+  const res = await fetch(toProxyPath("remove-all-cart"), {
     method: "POST",
     headers: jsonHeaders,
     body: JSON.stringify({}),
@@ -65,7 +67,7 @@ export async function checkout({ address_id, notes = "" }) {
   fd.append("address_id", String(address_id));
   fd.append("type", "cod");
   fd.append("notes", notes);
-  const res = await fetch("/api/proxy/checkout", { method: "POST", body: fd, credentials: "include" });
+  const res = await fetch(toProxyPath("checkout"), { method: "POST", body: fd, credentials: "include" });
   const payload = await parse(res);
   return ensureOk(res, payload);
 }
@@ -110,7 +112,7 @@ export async function checkoutGuest({
   });
 
   // IMPORTANT: omit credentials so the server treats it as guest
-  const res = await fetch("/api/proxy/checkout", { method: "POST", body: fd, credentials: "omit" });
+  const res = await fetch(toProxyPath("checkout"), { method: "POST", body: fd, credentials: "omit" });
   const payload = await parse(res);
   return ensureOk(res, payload);
 }

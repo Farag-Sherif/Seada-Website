@@ -1,6 +1,10 @@
 const API_BASE_URL = (import.meta.env.VITE_API_URL || "").replace(/\/+$/, "");
 
-function toProxyPath(path) {
+export function toProxyPath(path) {
+  if (import.meta.env.PROD && API_BASE_URL) {
+    if (!path) return API_BASE_URL;
+    return path.startsWith("/") ? `${API_BASE_URL}${path}` : `${API_BASE_URL}/${path}`;
+  }
   if (!path) return "/api/proxy";
   return path.startsWith("/") ? `/api/proxy${path}` : `/api/proxy/${path}`;
 }
