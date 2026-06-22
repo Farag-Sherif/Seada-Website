@@ -1,1 +1,0 @@
-import{j as s}from"./index-BSLUAvK_.js";import{M as m}from"./Media-BepcHx1U.js";import"./utils-BlDA5bAB.js";const i=t=>{const{image:o}=t;return s.jsx(m,{src:`${o.src}`,alt:o.alt,className:"img-fluid image_zoom_cls-0",style:{objectFit:"cover"}})};export{i as default};

@@ -1,1 +1,0 @@
-import{j as r,r as a}from"./index-BSLUAvK_.js";import t from"./MasterParallaxBanner-B3sF10zl.js";import"./Container-CFUkF6xZ.js";import"./utils-BlDA5bAB.js";import"./Col-CWqVzBv2.js";const n=()=>r.jsx(a.Fragment,{children:r.jsx(t,{bg:"parallax-banner1",parallaxClass:"text-center p-left",title:"2023",subTitle1:"fashion trends",subTitle2:"special offer"})});export{n as default};

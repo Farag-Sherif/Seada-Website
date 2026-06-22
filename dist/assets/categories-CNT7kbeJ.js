@@ -1,1 +1,0 @@
-import{g as t,p as n}from"./index-BSLUAvK_.js";async function p(){return await t("/categories")}async function c(a,s=1){const e=new FormData;return e.append("id",a),e.append("page",String(s)),await n("/items/cafes",e)}export{c as a,p as g};
