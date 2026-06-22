@@ -118,19 +118,8 @@ const MasterFooter = ({
           backgroundRepeat: "repeat-x",
           backgroundPosition: "center",
           backgroundSize: "contain",
-          position: "relative",
-        }}>
-        <div
-          style={{
-            position: "absolute",
-            bottom: "-20px",
-            height: "100%",
-            width: "100%",
-            backgroundImage:
-              "linear-gradient( to top, #16783c 0%, transparent 100%)",
-          }}
-        />
-      </div>
+        }}
+      />
       <footer className="corp-footer">
         <div className="corp-footer-top-bar" />
         <Container fluid={containerFluid || ""}>
