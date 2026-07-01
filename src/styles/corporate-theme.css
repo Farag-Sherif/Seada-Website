@@ -61,8 +61,8 @@
   --corp-duration: 0.4s;
   
   /* Typography */
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Alexandria', sans-serif;
+  --font-body: 'Alexandria', sans-serif;
 }
 
 /* ---- Global Reset & Base ---- */
@@ -129,7 +129,7 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--corp-navy);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  line-height: 1.1;
+  line-height: 1.5;
 }
 .corp-section-header p {
   font-size: 1.2rem;
@@ -330,4 +330,26 @@ h1, h2, h3, h4, h5, h6 {
     padding: 12px 0;
   }
   .corp-mobile-toggle { display: block; }
+}
+
+/* 
+=====================================================
+ GLOBAL ARABIC FONT (ALEXANDRIA) LINE-HEIGHT OVERRIDE
+=====================================================
+*/
+h1, h2, h3, h4, h5, h6,
+.title, .title1, .title2, .title3, .title4,
+.title-inner, .title-inner1, .title-inner2, .title-inner3, .title-inner4,
+.corp-section-header h2,
+.corp-highlight-title,
+.process-step-title-modern,
+.premium-hero-title,
+.luxury-title,
+.theme-card h3,
+.theme-card h5 {
+  line-height: 1.6 !important;
+}
+
+p, li, .desc, .description, .text-muted, .premium-hero-badge, .process-step-desc-modern {
+  line-height: 1.8 !important;
 }

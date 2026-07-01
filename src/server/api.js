@@ -35,7 +35,7 @@ async function request(input, init = {}) {
   const res = await fetch(input, {
     ...init,
     headers,
-    credentials: "include",
+    credentials: "same-origin",
   });
 
   const payload = await parsePayload(res);

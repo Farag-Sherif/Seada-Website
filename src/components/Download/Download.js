@@ -13,7 +13,7 @@ const Download = () => {
     fetchSettings();
   }, []);
   const downloadLink =
-    settings && settings.settings.file ? settings.settings.file : "#";
+    settings && settings.settings.file_path ? settings.settings.file_path : "#";
 
   return (
     <a

@@ -52,7 +52,7 @@ export default function RootLayout() {
                   <WishlistContextProvider>
                     <FilterProvider>
                       <Helmet>
-                        <title>Bleufleur</title>
+                        <title>Seada</title>
                         <meta name="viewport" content="width=device-width, initial-scale=1" />
                         <link rel="icon" href="/assets/images/favicon.ico" />
                       </Helmet>

@@ -217,11 +217,24 @@ const MasterFooter = ({
                 {storePhone && (
                   <li>
                     <i className="fa fa-phone" aria-hidden="true" />
-                    <a href={`tel:${storePhone.replace(/\s/g, "")}`}>
-                      {storePhone}
-                    </a>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center' }}>
+                      <a href={`tel:${storePhone.replace(/\s/g, "")}`} className="keep-ltr" style={{ display: 'inline-block', direction: 'ltr' }}>
+                        {storePhone}
+                      </a>
+                      <span className="mx-1 d-none d-sm-inline">•</span>
+                      <a href="tel:0227860001" className="keep-ltr" style={{ display: 'inline-block', direction: 'ltr' }}>0227860001</a>
+                      <span className="mx-1 d-none d-sm-inline">•</span>
+                      <a href="tel:0227860002" className="keep-ltr" style={{ display: 'inline-block', direction: 'ltr' }}>0227860002</a>
+                    </div>
                   </li>
                 )}
+                <li>
+                  <i className="fa fa-file-text-o" aria-hidden="true" />
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center' }}>
+                    <span>{isRTL ? "الرقم الضريبي:" : "Tax ID:"} </span>
+                    <span className="keep-ltr" style={{ display: 'inline-block', direction: 'ltr' }}>592-154-378</span>
+                  </div>
+                </li>
                 {storeEmail && (
                   <li>
                     <i className="fa fa-envelope-o" aria-hidden="true" />

@@ -109,7 +109,16 @@ const ProductsPage = () => {
   };
 
   const adaptedCards = useMemo(() => {
-    return products.map(p => {
+    let filteredProducts = products;
+    
+    if (selectedCategory) {
+      filteredProducts = products.filter(p => {
+        const catId = p.cafe_id || p.category?.id || p.raw?.cafe_id || p.raw?.category?.id;
+        return Number(catId) === Number(selectedCategory);
+      });
+    }
+
+    return filteredProducts.map(p => {
       const a = adapt(p);
       if (!a) return null;
       const first = a?.images?.[0]?.src || a?.image || a?.thumbnail || a?.raw?.image_path || "";
@@ -121,7 +130,7 @@ const ProductsPage = () => {
         images: (a?.images || []).map((im) => ({ ...im, src: absolutize(im.src) })),
       };
     }).filter(Boolean);
-  }, [products, adapt]);
+  }, [products, adapt, selectedCategory]);
 
   return (
     <CommonLayout parent="Home" title={isRTL ? "المنتجات" : "Products"}>

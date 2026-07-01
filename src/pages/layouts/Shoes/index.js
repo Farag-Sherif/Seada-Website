@@ -1,5 +1,5 @@
 // pages/layouts/fashion/shoes.jsx — Company Profile Homepage
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import Banner from "./components/Banner";
 import AboutUs from "./components/About-us";
@@ -14,6 +14,7 @@ import ServiceLayout from "../../../components/common/Service/service1";
 
 import { Product4 } from "../../../services/script";
 import { useLanguage } from "../../../helpers/Language/useLanguage";
+import { getPhone } from "../../../actions/main";
 
 const tr = (t, key, fallback) => {
   try {
@@ -27,10 +28,26 @@ const tr = (t, key, fallback) => {
 const Shoes = () => {
   const { t, isRTL } = useLanguage();
 
+  const [whatsappNumber, setWhatsappNumber] = useState("201234567890");
+
   useEffect(() => {
     // Set theme color to navy for corporate feel
     document.documentElement.style.setProperty("--theme-deafult", "#0F1B2D");
     document.documentElement.setAttribute("dir", isRTL ? "rtl" : "ltr");
+    
+    // Fetch WhatsApp number from API
+    getPhone()
+      .then((res) => {
+        const arr = Array.isArray(res) ? res : Array.isArray(res?.data) ? res.data : Array.isArray(res?.data?.data) ? res.data.data : [];
+        if (arr.length > 0) {
+          const p = arr[0];
+          const numStr = typeof p === "string" ? p : p?.mobile || p?.phone || p?.number || p?.value || p?.name || "";
+          if (numStr) {
+            setWhatsappNumber(String(numStr).replace(/[^0-9+]/g, ""));
+          }
+        }
+      })
+      .catch(() => {});
   }, [isRTL]);
 
   const lblProductsTitle = tr(t, "home.collections.title", isRTL ? "منتجاتنا المميزة" : "Featured Products");
@@ -81,7 +98,7 @@ const Shoes = () => {
 
       {/* WhatsApp floating button */}
       <a
-        href="https://wa.me/201234567890"
+        href={`https://wa.me/${whatsappNumber}`}
         target="_blank"
         rel="noreferrer"
         className="corp-whatsapp-float"
